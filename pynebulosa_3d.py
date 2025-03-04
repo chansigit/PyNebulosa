@@ -99,3 +99,18 @@ fig = px.scatter_3d(
     labels={'x': 'X', 'y': 'Y', 'z': 'Z', 'color': 'Density'},
 )
 fig.show()
+
+
+# =======================
+# 3D 可视化：用颜色显示每个点的密度
+# =======================
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+sc = ax.scatter(x, y, z, c=densities, cmap='viridis', s=30)
+fig.colorbar(sc, ax=ax, label='Weighted KDE Density')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Weighted KDE on Simulated Data')
+plt.show()
+
